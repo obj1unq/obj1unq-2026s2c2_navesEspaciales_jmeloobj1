@@ -18,6 +18,7 @@ describe "Nave de carga" {
 	}
 
 	test "no excedida de velocidad" {
+		naveVacia.propulsar()
 		assert.notThat(naveVacia.excedidaDeVelocidad())
 	}
 
@@ -45,10 +46,12 @@ describe "Nave de pasajeros" {
 	const naveConPasajeros = new NaveDePasajeros(cantidadDePasajeros = 296, velocidad = 290000)
 
 	test "velocidad maxima sin pasajeros" {
+		naveSinPasajeros.propulsar()
 		assert.equals(75000, naveSinPasajeros.velocidadMaximaPermitida())
 	}
 
 	test "velocidad maxima con pasajeros" {
+		naveConPasajeros.propulsar()
 		assert.equals(1000 - 200, naveConPasajeros.velocidadMaximaPermitida())
 	}
 
